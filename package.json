@@ -1,11 +1,11 @@
 {
-  "name": "skills",
-  "version": "1.4.9",
-  "description": "The open agent skills ecosystem",
+  "name": "skills-cn",
+  "version": "1.5.0",
+  "description": "The open agent skills ecosystem - 中国大陆 GitHub 加速版（使用 bgithub.xyz 代理）",
   "type": "module",
   "bin": {
-    "skills": "./bin/cli.mjs",
-    "add-skill": "./bin/cli.mjs"
+    "skills-cn": "./bin/cli.mjs",
+    "add-skill-cn": "./bin/cli.mjs"
   },
   "files": [
     "dist",
@@ -84,11 +84,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vercel-labs/skills.git"
+    "url": "git@github.com:lanceCryp/skills-cn.git"
   },
-  "homepage": "https://github.com/vercel-labs/skills#readme",
+  "homepage": "https://github.com/lanceCryp/skills-cn#readme",
   "bugs": {
-    "url": "https://github.com/vercel-labs/skills/issues"
+    "url": "https://github.com/lanceCryp/skills-cn/issues"
   },
   "author": "",
   "license": "MIT",

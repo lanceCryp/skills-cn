@@ -77,7 +77,7 @@ describe('source-parser', () => {
       const result = parseSource('vercel-labs/agent-skills');
       expect(result).toEqual({
         type: 'github',
-        url: 'https://github.com/vercel-labs/agent-skills.git',
+        url: 'https://bgithub.xyz/vercel-labs/agent-skills.git',
         subpath: undefined,
       });
     });
@@ -86,7 +86,7 @@ describe('source-parser', () => {
       const result = parseSource('https://github.com/owner/repo/tree/main/path');
       expect(result).toEqual({
         type: 'github',
-        url: 'https://github.com/owner/repo.git',
+        url: 'https://bgithub.xyz/owner/repo.git',
         ref: 'main',
         subpath: 'path',
       });
@@ -96,7 +96,7 @@ describe('source-parser', () => {
       const result = parseSource('https://github.com/owner/repo/blob/main/README.md#L10');
       expect(result).toEqual({
         type: 'github',
-        url: 'https://github.com/owner/repo.git',
+        url: 'https://bgithub.xyz/owner/repo.git',
       });
     });
 
@@ -104,7 +104,7 @@ describe('source-parser', () => {
       const result = parseSource('vercel-labs/agent-skills#feature/install');
       expect(result).toEqual({
         type: 'github',
-        url: 'https://github.com/vercel-labs/agent-skills.git',
+        url: 'https://bgithub.xyz/vercel-labs/agent-skills.git',
         ref: 'feature/install',
         subpath: undefined,
       });
@@ -114,7 +114,7 @@ describe('source-parser', () => {
       const result = parseSource('vercel-labs/agent-skills/');
       expect(result).toEqual({
         type: 'github',
-        url: 'https://github.com/vercel-labs/agent-skills.git',
+        url: 'https://bgithub.xyz/vercel-labs/agent-skills.git',
         subpath: undefined,
       });
     });

@@ -3,11 +3,11 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { runCliOutput, stripLogo, hasLogo } from './test-utils.ts';
 
-describe('skills CLI', () => {
+describe('skills-cn CLI', () => {
   describe('--help', () => {
     it('should display help message', () => {
       const output = runCliOutput(['--help']);
-      expect(output).toContain('Usage: skills <command> [options]');
+      expect(output).toContain('Usage: skills-cn <command> [options]');
       expect(output).toContain('Manage Skills:');
       expect(output).toContain('init [name]');
       expect(output).toContain('add <package>');
@@ -47,11 +47,11 @@ describe('skills CLI', () => {
   describe('no arguments', () => {
     it('should display banner', () => {
       const output = stripLogo(runCliOutput([]));
-      expect(output).toContain('The open agent skills ecosystem');
-      expect(output).toContain('npx skills add');
-      expect(output).toContain('npx skills check');
-      expect(output).toContain('npx skills update');
-      expect(output).toContain('npx skills init');
+      expect(output).toContain('The open agent skills-cn ecosystem');
+      expect(output).toContain('npx skills-cn add');
+      expect(output).toContain('npx skills-cn check');
+      expect(output).toContain('npx skills-cn update');
+      expect(output).toContain('npx skills-cn init');
       expect(output).toContain('skills.sh');
     });
   });
@@ -61,7 +61,7 @@ describe('skills CLI', () => {
       const output = runCliOutput(['unknown-command']);
       expect(output).toMatchInlineSnapshot(`
         "Unknown command: unknown-command
-        Run skills --help for usage.
+        Run skills-cn --help for usage.
         "
       `);
     });

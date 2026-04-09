@@ -1,5 +1,6 @@
 import { isAbsolute, resolve } from 'path';
 import type { ParsedSource } from './types.ts';
+import { toProxyUrl } from './constants.ts';
 
 /**
  * Extract owner/repo (or group/subgroup/repo for GitLab) from a parsed source
@@ -267,7 +268,7 @@ export function parseSource(input: string): ParsedSource {
     const [, owner, repo, ref, subpath] = githubTreeWithPathMatch;
     return {
       type: 'github',
-      url: `https://github.com/${owner}/${repo}.git`,
+      url: toProxyUrl(`https://github.com/${owner}/${repo}.git`),
       ref: ref || fragmentRef,
       subpath: subpath ? sanitizeSubpath(subpath) : subpath,
     };
@@ -279,7 +280,7 @@ export function parseSource(input: string): ParsedSource {
     const [, owner, repo, ref] = githubTreeMatch;
     return {
       type: 'github',
-      url: `https://github.com/${owner}/${repo}.git`,
+      url: toProxyUrl(`https://github.com/${owner}/${repo}.git`),
       ref: ref || fragmentRef,
     };
   }
@@ -291,7 +292,7 @@ export function parseSource(input: string): ParsedSource {
     const cleanRepo = repo!.replace(/\.git$/, '');
     return {
       type: 'github',
-      url: `https://github.com/${owner}/${cleanRepo}.git`,
+      url: toProxyUrl(`https://github.com/${owner}/${cleanRepo}.git`),
       ...(fragmentRef ? { ref: fragmentRef } : {}),
     };
   }
@@ -351,7 +352,7 @@ export function parseSource(input: string): ParsedSource {
     const [, owner, repo, skillFilter] = atSkillMatch;
     return {
       type: 'github',
-      url: `https://github.com/${owner}/${repo}.git`,
+      url: toProxyUrl(`https://github.com/${owner}/${repo}.git`),
       ...(fragmentRef ? { ref: fragmentRef } : {}),
       skillFilter: fragmentSkillFilter || skillFilter,
     };
@@ -362,7 +363,7 @@ export function parseSource(input: string): ParsedSource {
     const [, owner, repo, subpath] = shorthandMatch;
     return {
       type: 'github',
-      url: `https://github.com/${owner}/${repo}.git`,
+      url: toProxyUrl(`https://github.com/${owner}/${repo}.git`),
       ...(fragmentRef ? { ref: fragmentRef } : {}),
       subpath: subpath ? sanitizeSubpath(subpath) : subpath,
       ...(fragmentSkillFilter ? { skillFilter: fragmentSkillFilter } : {}),

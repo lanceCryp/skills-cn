@@ -17,7 +17,7 @@ describe('parseSource', () => {
     it('GitHub URL - basic repo', () => {
       const result = parseSource('https://github.com/owner/repo');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBeUndefined();
       expect(result.subpath).toBeUndefined();
     });
@@ -25,27 +25,27 @@ describe('parseSource', () => {
     it('GitHub URL - with .git suffix', () => {
       const result = parseSource('https://github.com/owner/repo.git');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
     });
 
     it('GitHub URL - with .git suffix and #branch', () => {
       const result = parseSource('https://github.com/owner/repo.git#feature/install');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('feature/install');
     });
 
     it('GitHub blob URL anchor is not treated as a ref', () => {
       const result = parseSource('https://github.com/owner/repo/blob/main/README.md#L10');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBeUndefined();
     });
 
     it('GitHub URL - tree with branch only', () => {
       const result = parseSource('https://github.com/owner/repo/tree/feature-branch');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('feature-branch');
       expect(result.subpath).toBeUndefined();
     });
@@ -53,7 +53,7 @@ describe('parseSource', () => {
     it('GitHub URL - tree with branch and path', () => {
       const result = parseSource('https://github.com/owner/repo/tree/main/skills/my-skill');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('main');
       expect(result.subpath).toBe('skills/my-skill');
     });
@@ -64,7 +64,7 @@ describe('parseSource', () => {
     it('GitHub URL - tree with slash in path (ambiguous branch)', () => {
       const result = parseSource('https://github.com/owner/repo/tree/feature/my-feature');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('feature');
       expect(result.subpath).toBe('my-feature');
     });
@@ -149,7 +149,7 @@ describe('parseSource', () => {
     it('GitHub shorthand - owner/repo', () => {
       const result = parseSource('owner/repo');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBeUndefined();
       expect(result.subpath).toBeUndefined();
     });
@@ -157,21 +157,21 @@ describe('parseSource', () => {
     it('GitHub shorthand - owner/repo/path', () => {
       const result = parseSource('owner/repo/skills/my-skill');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.subpath).toBe('skills/my-skill');
     });
 
     it('GitHub shorthand - owner/repo/ trailing slash', () => {
       const result = parseSource('owner/repo/');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.subpath).toBeUndefined();
     });
 
     it('GitHub shorthand - owner/repo@skill (skill filter syntax)', () => {
       const result = parseSource('owner/repo@my-skill');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.skillFilter).toBe('my-skill');
       expect(result.subpath).toBeUndefined();
     });
@@ -179,14 +179,14 @@ describe('parseSource', () => {
     it('GitHub shorthand - owner/repo@skill with hyphenated skill name', () => {
       const result = parseSource('vercel-labs/agent-skills@find-skills');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/vercel-labs/agent-skills.git');
+      expect(result.url).toBe('https://bgithub.xyz/vercel-labs/agent-skills.git');
       expect(result.skillFilter).toBe('find-skills');
     });
 
     it('GitHub shorthand - owner/repo#branch', () => {
       const result = parseSource('owner/repo#my-branch');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('my-branch');
       expect(result.subpath).toBeUndefined();
     });
@@ -194,7 +194,7 @@ describe('parseSource', () => {
     it('GitHub shorthand - owner/repo/path#branch', () => {
       const result = parseSource('owner/repo/skills/my-skill#feature/skills');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('feature/skills');
       expect(result.subpath).toBe('skills/my-skill');
     });
@@ -202,7 +202,7 @@ describe('parseSource', () => {
     it('GitHub shorthand - owner/repo#branch@skill', () => {
       const result = parseSource('owner/repo#my-branch@my-skill');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('my-branch');
       expect(result.skillFilter).toBe('my-skill');
     });
@@ -412,7 +412,7 @@ describe('Source aliases', () => {
   it('resolves coinbase/agentWallet to coinbase/agentic-wallet-skills', () => {
     const result = parseSource('coinbase/agentWallet');
     expect(result.type).toBe('github');
-    expect(result.url).toBe('https://github.com/coinbase/agentic-wallet-skills.git');
+    expect(result.url).toBe('https://bgithub.xyz/coinbase/agentic-wallet-skills.git');
   });
 });
 
@@ -421,34 +421,34 @@ describe('Prefix shorthand tests', () => {
     it('github:owner/repo - basic', () => {
       const result = parseSource('github:owner/repo');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.subpath).toBeUndefined();
     });
 
     it('github:owner/repo/subpath', () => {
       const result = parseSource('github:owner/repo/skills/my-skill');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.subpath).toBe('skills/my-skill');
     });
 
     it('github:owner/repo@skill-name', () => {
       const result = parseSource('github:owner/repo@my-skill');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.skillFilter).toBe('my-skill');
     });
 
     it('github:googleworkspace/cli', () => {
       const result = parseSource('github:googleworkspace/cli');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/googleworkspace/cli.git');
+      expect(result.url).toBe('https://bgithub.xyz/googleworkspace/cli.git');
     });
 
     it('github:owner/repo#branch', () => {
       const result = parseSource('github:owner/repo#feature/install');
       expect(result.type).toBe('github');
-      expect(result.url).toBe('https://github.com/owner/repo.git');
+      expect(result.url).toBe('https://bgithub.xyz/owner/repo.git');
       expect(result.ref).toBe('feature/install');
     });
   });

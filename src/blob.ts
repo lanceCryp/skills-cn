@@ -12,6 +12,7 @@
 
 import { parseFrontmatter } from './frontmatter.ts';
 import type { Skill } from './types.ts';
+import { toProxyUrl } from './constants.ts';
 
 // ─── Types ───
 
@@ -89,7 +90,9 @@ export async function fetchRepoTree(
 
   for (const branch of branches) {
     try {
-      const url = `https://api.github.com/repos/${ownerRepo}/git/trees/${encodeURIComponent(branch)}?recursive=1`;
+      const url = toProxyUrl(
+        `https://api.github.com/repos/${ownerRepo}/git/trees/${encodeURIComponent(branch)}?recursive=1`
+      );
       const headers: Record<string, string> = {
         Accept: 'application/vnd.github.v3+json',
         'User-Agent': 'skills-cli',
@@ -251,7 +254,9 @@ async function fetchSkillMdContent(
   skillMdPath: string
 ): Promise<string | null> {
   try {
-    const url = `https://raw.githubusercontent.com/${ownerRepo}/${branch}/${skillMdPath}`;
+    const url = toProxyUrl(
+      `https://raw.githubusercontent.com/${ownerRepo}/${branch}/${skillMdPath}`
+    );
     const response = await fetch(url, {
       signal: AbortSignal.timeout(FETCH_TIMEOUT),
     });
