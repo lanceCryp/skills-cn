@@ -13,7 +13,7 @@ Supports **OpenCode**, **Claude Code**, **Codex**, **Cursor**, and [41 more](#su
 
 ## Features
 
-- 🚀 **GitHub Acceleration**: Uses bgithub.xyz proxy to solve GitHub access issues in mainland China
+- 🚀 **GitHub Acceleration**: Uses kkgithub.com and gh-proxy.org proxies to solve GitHub access issues in mainland China
 - 📦 **One-click Install**: Support multiple source formats for installing skills
 - 🔄 **Auto Update**: check and update commands for easy skill management
 - 🌐 **Multi-Agent Support**: Supports 46+ mainstream Coding Agents
@@ -26,13 +26,13 @@ When using Coding Agents in mainland China, skills installed via [skills.sh](htt
 
 ### Solution
 
-This project preserves the high-quality skills from the original [vercel-labs/skills](https://github.com/vercel-labs/skills), using the `bgithub.xyz` proxy to enable GitHub access acceleration, allowing mainland China users to smoothly install and use high-quality skills.
+This project preserves the high-quality skills from the original [vercel-labs/skills](https://github.com/vercel-labs/skills), using the `kkgithub.com` and `gh-proxy.org` proxies to enable GitHub access acceleration, allowing mainland China users to smoothly install and use high-quality skills.
 
 ### Comparison with Original
 
 | Feature | vercel-labs/skills | skills-cn |
 | ------- | ----------------- | --------- |
-| GitHub Access | Direct (slow/fails in China) | bgithub.xyz acceleration |
+| GitHub Access | Direct (slow/fails in China) | kkgithub.com + gh-proxy.org acceleration |
 | Skills Source | Official high-quality repos | Official high-quality repos |
 | CLI Command | `npx skills` | `npx skills-cn` |
 | Maintenance | Vercel Official | Community maintained |
@@ -440,8 +440,8 @@ Ensure you have write access to the target directory.
 | `INSTALL_INTERNAL_SKILLS` | Set to `1` or `true` to show and install skills marked as `internal: true` |
 | `DISABLE_TELEMETRY`       | Set to disable anonymous usage telemetry                                   |
 | `DO_NOT_TRACK`            | Alternative way to disable telemetry                                       |
-| `GITHUB_PROXY_URL`        | Custom GitHub proxy URL (default: `https://bgithub.xyz`)                  |
-| `GITHUB_RAW_PROXY_URL`    | Custom GitHub raw proxy URL (default: `https://raw.bgithub.xyz`)           |
+| `GITHUB_PROXY_URL`        | Custom GitHub proxy URL (default: `https://kkgithub.com`)                  |
+| `GITHUB_RAW_PROXY_URL`    | Custom GitHub raw proxy URL (default: `https://gh-proxy.org`)           |
 | `GITHUB_API_PROXY_URL`    | Custom GitHub API proxy URL (default: `https://api.bgithub.com`)           |
 
 ```bash
@@ -457,7 +457,7 @@ Telemetry is automatically disabled in CI environments.
 
 ## Acknowledgements
 
-This project is based on [vercel-labs/skills](https://github.com/vercel-labs/skills), with added bgithub.xyz proxy support specifically to address GitHub access issues for users in mainland China.
+This project is based on [vercel-labs/skills](https://github.com/vercel-labs/skills), with added kkgithub.com and gh-proxy.org proxy support specifically to address GitHub access issues for users in mainland China.
 
 ## Related Links
 

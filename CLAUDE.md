@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `skills-cn` is the CLI for the open agent skills ecosystem. It manages reusable skill definitions (in `SKILL.md` files) that extend coding agents' capabilities. Supports 46+ agents including Claude Code, Cursor, Codex, OpenCode, and more.
 
-This is a China mainland-accelerated fork of `vercel-labs/skills`, using `bgithub.xyz` proxy to solve GitHub access issues.
+This is a China mainland-accelerated fork of `vercel-labs/skills`, using `kkgithub.com` and `gh-proxy.org` proxies to solve GitHub access issues.
 
 ## Commands
 
@@ -44,7 +44,7 @@ src/
 ├── blob.ts           # GitHub blob/content fetching with proxy support
 ├── telemetry.ts      # Anonymous usage tracking (disabled in CI)
 ├── plugin-manifest.ts # Plugin manifest discovery (.claude-plugin/)
-├── constants.ts      # GitHub proxy URLs (bgithub.xyz)
+├── constants.ts      # GitHub proxy URLs (kkgithub.com, gh-proxy.org)
 ├── providers/        # Remote skill providers
 │   ├── registry.ts   # Registry provider
 │   ├── huggingface.ts
@@ -55,10 +55,10 @@ src/
 
 ## Key Systems
 
-**GitHub Proxy**: All GitHub URLs are routed through `bgithub.xyz` proxy for China mainland acceleration:
-- `https://github.com/` → `https://bgithub.xyz/`
-- `https://raw.githubusercontent.com/` → `https://raw.bgithub.xyz/`
-- `https://api.github.com/` → `https://api.bgithub.com/`
+**GitHub Proxy**: All GitHub URLs are routed through proxy for China mainland acceleration:
+- `https://github.com/` → `https://kkgithub.com/` (git clone)
+- `https://raw.githubusercontent.com/` → `https://gh-proxy.org/https://raw.githubusercontent.com/` (raw content)
+- `https://api.github.com/` → `https://gh-proxy.org/https://api.github.com/` (API)
 
 Override with environment variables: `GITHUB_PROXY_URL`, `GITHUB_RAW_PROXY_URL`, `GITHUB_API_PROXY_URL`
 

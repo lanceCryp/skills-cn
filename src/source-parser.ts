@@ -33,8 +33,22 @@ export function getOwnerRepo(parsed: ParsedSource): string | null {
 
   try {
     const url = new URL(parsed.url);
-    // Get pathname, remove leading slash and trailing .git
     let path = url.pathname.slice(1);
+
+    // Handle proxy URLs: strip the /https://github.com/ or /https://raw.githubusercontent.com/ prefix
+    // For example: /https:/github.com/owner/repo.git -> owner/repo
+    // The URL pathname for "https://v6.gh-proxy.org/https://github.com/owner/repo.git" is "/https:/github.com/owner/repo.git"
+    if (/^https:\//i.test(path)) {
+      // Strip the leading / and the proxy target protocol/host parts
+      // Pattern matches: /https://github.com/owner/repo.git -> owner/repo
+      // or: /https:/github.com/owner/repo.git -> owner/repo
+      // Note: We capture owner/repo (2+ segments), not just repo
+      const proxyMatch = path.match(/^\/?https:\/\/[^\/]+\/(.+?)(?:\.git)?$/);
+      if (proxyMatch) {
+        path = proxyMatch[1]!;
+      }
+    }
+
     path = path.replace(/\.git$/, '');
 
     // Must have at least owner/repo (one slash)

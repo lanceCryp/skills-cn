@@ -13,7 +13,7 @@
 
 ## 特性
 
-- 🚀 **GitHub 加速**：使用 bgithub.xyz 代理，解决中国大陆访问 GitHub 网络问题
+- 🚀 **GitHub 加速**：使用 kkgithub.com 和 gh-proxy.org 代理，解决中国大陆访问 GitHub 网络问题
 - 📦 **一键安装**：支持多种来源格式安装 skills
 - 🔄 **自动更新**：check 和 update 命令方便管理已安装的 skills
 - 🌐 **多 Agent 支持**：支持 46+ 种主流 Coding Agent
@@ -26,13 +26,13 @@
 
 ### 解决方案
 
-本项目保留 [vercel-labs/skills](https://github.com/vercel-labs/skills) 原版的高质量 skills，通过 `bgithub.xyz` 代理实现 GitHub 访问加速，让中国大陆用户也能流畅地安装和使用优质 skills。
+本项目保留 [vercel-labs/skills](https://github.com/vercel-labs/skills) 原版的高质量 skills，通过 `kkgithub.com` 和 `gh-proxy.org` 代理实现 GitHub 访问加速，让中国大陆用户也能流畅地安装和使用优质 skills。
 
 ### 与原版的区别
 
 | 对比项 | vercel-labs/skills | skills-cn |
 | ------ | ----------------- | --------- |
-| GitHub 访问 | 直连（国内缓慢/失败） | bgithub.xyz 加速 |
+| GitHub 访问 | 直连（国内缓慢/失败） | kkgithub.com + gh-proxy.org 加速 |
 | skills 来源 | 官方高质量仓库 | 官方高质量仓库 |
 | CLI 命令 | `npx skills` | `npx skills-cn` |
 | 维护更新 | Vercel 官方 | 社区维护 |
@@ -434,8 +434,8 @@ Skills 遵循共享的 [Agent Skills 规范](https://agentskills.io)，因此在
 | `INSTALL_INTERNAL_SKILLS` | 设为 `1` 或 `true` 以显示和安装标记为 `internal: true` 的 skills |
 | `DISABLE_TELEMETRY`      | 设为 `1` 禁用匿名使用量遥测                                    |
 | `DO_NOT_TRACK`           | 禁用遥测的替代方式                                            |
-| `GITHUB_PROXY_URL`       | 自定义 GitHub 代理 URL（默认：`https://bgithub.xyz`）        |
-| `GITHUB_RAW_PROXY_URL`   | 自定义 GitHub raw 代理 URL（默认：`https://raw.bgithub.xyz`） |
+| `GITHUB_PROXY_URL`       | 自定义 GitHub 代理 URL（默认：`https://kkgithub.com`）        |
+| `GITHUB_RAW_PROXY_URL`   | 自定义 GitHub raw 代理 URL（默认：`https://gh-proxy.org`） |
 | `GITHUB_API_PROXY_URL`   | 自定义 GitHub API 代理 URL（默认：`https://api.bgithub.com`） |
 
 ```bash
@@ -483,7 +483,7 @@ CI 环境中会自动禁用遥测。
 
 ## 致谢
 
-本项目基于 [vercel-labs/skills](https://github.com/vercel-labs/skills) 开发，专门为解决中国大陆用户访问 GitHub 的网络问题而添加了 bgithub.xyz 代理支持。
+本项目基于 [vercel-labs/skills](https://github.com/vercel-labs/skills) 开发，专门为解决中国大陆用户访问 GitHub 的网络问题而添加了 kkgithub.com 和 gh-proxy.org 代理支持。
 
 ## 许可证
 
