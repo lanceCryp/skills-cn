@@ -1,6 +1,6 @@
 {
   "name": "skills-cn",
-  "version": "1.5.1-snapshot.0",
+  "version": "1.5.1",
   "description": "The open agent skills ecosystem - 中国大陆 GitHub 加速版（使用 kkgithub.com 和 gh-proxy.org 代理）",
   "type": "module",
   "bin": {
